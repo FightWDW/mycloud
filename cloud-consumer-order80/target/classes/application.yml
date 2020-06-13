@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: cloud-order-server
+eureka:
+  # 表示客户端，就是服务提供者
+  client:
+    #是否从eureka注册中心抓取信息，单节点无所谓，集群必须设置为true,默认是true,只有true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    #表示将自己注册进eureka
+    register-with-eureka: true
+    #表示注册的地址
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: com.wdw.consumer8888
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
